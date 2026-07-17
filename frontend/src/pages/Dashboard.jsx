@@ -113,7 +113,12 @@ return (
   }`}
 >
 
-      <h2>💰 Personal Finance Dashboard</h2>
+      <div className="bg-primary text-white p-4 rounded shadow mb-4">
+  <h2>💰 Personal Finance Tracker</h2>
+  <p className="mb-0">
+    Manage your income, expenses, and savings efficiently.
+  </p>
+</div>
 
       <div className="mb-3">
         <Link to="/add" className="btn btn-primary">
@@ -198,7 +203,7 @@ onClick={exportPDF}
       </div>
 
       <ExpenseChart income={income} expense={expense} />
-      <Budget expense={expense}/>
+      <Budget expense={expense}/> 
       <CategorySummary transactions={transactions}/>
       <Statistics transactions={transactions}/>
 
@@ -246,4 +251,12 @@ onClick={exportPDF}
     </div>
   </>
 );
+}
+{
+
+<div className="footer">
+<footer className="text-center mt-5 mb-3 text-muted">
+  © 2026 Personal Finance Tracker | Developed by <strong>Sakeena Barkath</strong>
+</footer>
+</div>
 }
