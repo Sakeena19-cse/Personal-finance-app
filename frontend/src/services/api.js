@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const API = axios.create({
-  baseURL: "https://personal-finance-backend-uvj8.onrender.com",
+  baseURL: "https://personal-finance-backend-uvj8.onrender.com/api",
 });
 API.interceptors.request.use((req) => {
   const token = localStorage.getItem("token");
