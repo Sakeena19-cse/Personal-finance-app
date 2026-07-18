@@ -1,79 +1,46 @@
 # 💰 Personal Finance Tracker
 
-A full-stack Personal Finance Tracker built using the MERN Stack. It helps users manage their income and expenses, track spending, and view financial insights through an interactive dashboard.
+A full-stack Personal Finance Tracker built using the MERN Stack. Users can securely manage their income and expenses, visualize spending through charts, and track their financial health.
 
----
+## 🚀 Live Demo
 
-## 🚀 Features
+Frontend: https://YOUR-VERCEL-URL.vercel.app
+
+Backend: https://personal-finance-backend-uvj8.onrender.com
+
+## ✨ Features
 
 - 🔐 User Authentication (JWT)
 - ➕ Add Transactions
 - ✏️ Edit Transactions
-- 🗑️ Delete Transactions
-- 📊 Dashboard with Balance, Income & Expense
-- 🥧 Expense Chart
+- 🗑 Delete Transactions
+- 📊 Dashboard with Statistics
+- 📈 Expense Chart
 - 🔍 Search Transactions
-- 📂 Filter by Transaction Type
-- ↕️ Sort Transactions
-- 💵 Budget Tracker
-- 📈 Statistics
-- 📑 Category Summary
-- 📄 Export Transactions to PDF
-- 📊 Export Transactions to CSV
+- 🎯 Filter by Income/Expense
+- ↕️ Sort by Date and Amount
 - 📱 Responsive Design
 
----
-
-## 🛠️ Tech Stack
+## 🛠 Tech Stack
 
 ### Frontend
 - React.js
 - React Router
-- Axios
 - Bootstrap
+- Axios
+- React Toastify
+- React Icons
 - Chart.js
-- react-csv
-- jsPDF
 
 ### Backend
 - Node.js
 - Express.js
 - MongoDB
 - Mongoose
-- JWT Authentication
-- bcrypt.js
+- JWT
+- bcrypt
 
----
-
-## 📂 Project Structure
-
-```
-personal-finance-app/
-│
-├── backend/
-│   ├── models/
-│   ├── routes/
-│   ├── middleware/
-│   └── server.js
-│
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   └── context/
-│   └── package.json
-```
-
----
-
-## ⚙️ Installation
-
-### Clone the repository
-
-```bash
-git clone https://github.com/YOUR_USERNAME/personal-finance-app.git
-```
+## 📂 Installation
 
 ### Backend
 
@@ -89,38 +56,7 @@ npm start
 cd frontend
 npm install
 npm run dev
-```
-
----
-
-## 📸 Screenshots
-
-Add screenshots of:
-- Login Page
-- Dashboard
-- Add Transaction
-- Expense Chart
-- Budget Tracker
-
----
-
-## 🎯 Future Improvements
-
-- 🌙 Dark Mode
-- 📅 Monthly Reports
-- 🔔 Budget Notifications
-- 📱 Mobile App Version
-
----
 
 ## 👩‍💻 Author
 
 **Sakeena Barkath**
-
-B.E. Computer Science and Engineering
-
----
-
-## ⭐ If you like this project
-
-Please give it a ⭐ on GitHub.
