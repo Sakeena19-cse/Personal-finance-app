@@ -9,6 +9,8 @@ import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import CategorySummary from "../components/CategorySummary";
 import Statistics from "../components/Statistics";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import {toast} from "react-toastify";
 
 
 export default function Dashboard() {
@@ -39,7 +41,7 @@ export default function Dashboard() {
       fetchTransactions();
     } catch (err) {
       console.error(err);
-      alert("Failed to delete transaction");
+      toast.error("Failed to delete transaction");
     }
   };
   const income = transactions
@@ -188,14 +190,14 @@ onClick={exportPDF}
         </div>
 
         <div className="col-md-4">
-          <div className="card p-3 shadow">
+          <div className="card text-white bg-primary shadow p-3">
             <h5 className="text-success">Income</h5>
             <h3>₹{income}</h3>
           </div>
         </div>
 
         <div className="col-md-4">
-          <div className="card p-3 shadow">
+          <div className="card text-white bg-success shadow p-3">
             <h5 className="text-danger">Expense</h5>
             <h3>₹{expense}</h3>
           </div>
@@ -205,7 +207,12 @@ onClick={exportPDF}
       <ExpenseChart income={income} expense={expense} />
       <Budget expense={expense}/> 
       <CategorySummary transactions={transactions}/>
-      <Statistics transactions={transactions}/>
+      <Statistics
+      transactions={transactions}
+      income={income}
+      expense={expense}
+      balance={balance}
+/>
 
       <div className="mt-5">
         <h3>Recent Transactions</h3>
@@ -214,37 +221,48 @@ onClick={exportPDF}
           <p>No transactions found.</p>
         ) : (
           recentTransactions.map((t) => (
-            <div key={t._id} className="card mb-3 p-3 shadow-sm">
-              <h5>{t.category}</h5>
+            
+            <div key={t._id} className="card shadow-sm border-0 rounded-4 mb-3">
+  <div className="card-body">
+    <div className="d-flex justify-content-between">
+      <h5>{t.category}</h5>
 
-              <p>
-                <strong>Type:</strong> {t.type}
-              </p>
+      <span
+        className={`badge ${
+          t.type === "income"
+            ? "bg-success"
+            : "bg-danger"
+        }`}
+      >
+        {t.type}
+      </span>
+    </div>
 
-              <p>
-                <strong>Amount:</strong> ₹{t.amount}
-              </p>
+    <h4 className="mt-2">₹{t.amount}</h4>
 
-              <p>
-                <strong>Note:</strong> {t.note}
-              </p>
+    <p className="text-muted">{t.note}</p>
 
-              <div className="d-flex gap-2">
-                <Link
-                  to={`/edit/${t._id}`}
-                  className="btn btn-warning btn-sm"
-                >
-                  Edit
-                </Link>
+    <small>
+      {new Date(t.date).toLocaleDateString()}
+    </small>
 
-                <button
-                  className="btn btn-danger btn-sm"
-                  onClick={() => deleteTransaction(t._id)}
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
+    <div className="mt-3 d-flex gap-2">
+      <Link
+        to={`/edit/${t._id}`}
+        className="btn btn-warning btn-sm"
+      >
+        ✏ Edit
+      </Link>
+
+      <button
+        className="btn btn-danger btn-sm"
+        onClick={() => deleteTransaction(t._id)}
+      >
+        🗑 Delete
+      </button>
+    </div>
+  </div>
+</div>
           ))
         )}
       </div>

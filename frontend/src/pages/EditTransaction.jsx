@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import API from "../services/api";
+import {toast} from "react-toastify";
 
 export default function EditTransaction() {
   const { id } = useParams();
@@ -39,10 +40,10 @@ export default function EditTransaction() {
 
     try {
       await API.put(`/transactions/${id}`, form);
-      alert("Transaction Updated!");
+      toast.success("Transaction Updated Successfully!");
       navigate("/dashboard");
     } catch {
-      alert("Failed to update transaction");
+      toast.error("Failed to update transaction");
     }
   };
 

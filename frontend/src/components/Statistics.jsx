@@ -1,4 +1,9 @@
-export default function Statistics({ transactions }) {
+export default function Statistics({
+  transactions,
+  income,
+  expense,
+  balance,
+}) {
   const expenses = transactions.filter(
     (t) => t.type === "expense"
   );
@@ -26,25 +31,44 @@ export default function Statistics({ transactions }) {
       : 0;
 
   return (
-    <div className="card p-3 shadow mt-4">
-      <h4>Statistics</h4>
+    <>
+      <div className="row mb-4">
+        <div className="col-md-4">
+          <div className="card bg-primary text-white shadow">
+            <div className="card-body">
+              <h5>Total Balance</h5>
+              <h2>₹{balance}</h2>
+            </div>
+          </div>
+        </div>
 
-      <p>
-        <strong>Total Transactions:</strong>{" "}
-        {transactions.length}
-      </p>
+        <div className="col-md-4">
+          <div className="card bg-success text-white shadow">
+            <div className="card-body">
+              <h5>Total Income</h5>
+              <h2>₹{income}</h2>
+            </div>
+          </div>
+        </div>
 
-      <p>
-        <strong>Highest Expense:</strong> ₹{highestExpense}
-      </p>
+        <div className="col-md-4">
+          <div className="card bg-danger text-white shadow">
+            <div className="card-body">
+              <h5>Total Expense</h5>
+              <h2>₹{expense}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <p>
-        <strong>Highest Income:</strong> ₹{highestIncome}
-      </p>
+      <div className="card p-3 shadow mt-4">
+        <h4>Statistics</h4>
 
-      <p>
-        <strong>Average Expense:</strong> ₹{averageExpense}
-      </p>
-    </div>
+        <p><strong>Total Transactions:</strong> {transactions.length}</p>
+        <p><strong>Highest Expense:</strong> ₹{highestExpense}</p>
+        <p><strong>Highest Income:</strong> ₹{highestIncome}</p>
+        <p><strong>Average Expense:</strong> ₹{averageExpense}</p>
+      </div>
+    </>
   );
 }

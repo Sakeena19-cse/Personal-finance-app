@@ -1,0 +1,63 @@
+body {
+  background: #f4f7fb;
+}
+
+.card {
+  border-radius: 18px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.btn {
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.badge {
+  font-size: 14px;
+}
+
+input,
+select {
+  border-radius: 10px !important;
+}
+
+.navbar {
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+.form-control {
+  border-radius: 12px;
+}
+
+.btn-primary {
+  border-radius: 12px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.card {
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

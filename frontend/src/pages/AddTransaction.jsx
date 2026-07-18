@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../services/api";
+import {toast} from "react-toastify";
 
 export default function AddTransaction() {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ export default function AddTransaction() {
 
     try {
       await API.post("/transactions/add", form);
-      alert("Transaction Added!");
+      toast.success("Transaction Added Successfully!");
       navigate("/dashboard");
     } catch (err) {
         console.error(err);
